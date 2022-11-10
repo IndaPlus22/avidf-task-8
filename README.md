@@ -1,3 +1,3 @@
 # avidf-task-8
 
-#To faculty or factorial!
+To faculty or factorial!
