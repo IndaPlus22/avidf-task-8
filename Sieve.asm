@@ -25,17 +25,17 @@ main:
     syscall                         # read integer from standard input stream to $v0
 
     # Check input
-    li 	    $t0,1001                # set max to 1000
-    slt	    $t1,$v0,$t0		        # $t1 = input < 1001
-    beq     $t1,$zero,err # if !(input < 1001), jump to invalid_input
+    li 	    $t0,1001            # set max to 1000
+    slt	    $t1,$v0,$t0		# $t1 = input < 1001
+    beq     $t1,$zero,err 	# if !(input < 1001), jump to invalid_input
     nop
-    li	    $t0,1                   # $t0 = 1
-    slt     $t1,$t0,$v0		        # $t1 = 1 < input
-    beq     $t1,$zero,err # if !(1 < input), jump to invalid_input
+    li	    $t0,1               # $t0 = 1
+    slt     $t1,$t0,$v0		# $t1 = 1 < input
+    beq     $t1,$zero,err 	# if !(1 < input), jump to invalid_input
     nop
     
     # initialise primes array
-    la	    $t0,prime_Num              # $s1 = address of the first element in the array
+    la	    $t0,prime_Num	# $s1 = address of the first element in the array
     add     $t1, $0, $v0
     add     $t1, $t1, 1
     li 	    $t2,0
@@ -47,7 +47,7 @@ init_loop:
     addi    $t2, $t2, 1             # increment counter
     bne	    $t2, $t1, init_loop     # loop if counter != 999
     
-    ### Let the Sieve commence! ###
+    ### Let the Sieving commence! ###
 	sieve_through:
 	add $t3, $t3, 1
 	mul $t2, $t3, $t3
