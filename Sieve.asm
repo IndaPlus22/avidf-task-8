@@ -41,11 +41,14 @@ main:
     li 	    $t2,0
     li	    $t3,1
     
+    
 init_loop:
+
     sb	    $t3, ($t0)              # prime numbers
     addi    $t0, $t0, 1             # increment pointer
     addi    $t2, $t2, 1             # increment counter
     bne	    $t2, $t1, init_loop     # loop if counter != 999
+    
     
     ### Let the Sieving commence! ###
 	sieve_through:
@@ -68,6 +71,7 @@ init_loop:
     syscall
     	
     li $t2, 1
+    
     print_loop:
     	la $t0, prime_Num
     	add $t2, $t2, 1
