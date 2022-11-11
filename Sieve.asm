@@ -47,7 +47,7 @@ init_loop:
     sb	    $t3, ($t0)              # prime numbers
     addi    $t0, $t0, 1             # increment pointer
     addi    $t2, $t2, 1             # increment counter
-    bne	    $t2, $t1, init_loop     # loop if counter != 999
+    bne	    $t2, $t1, init_loop     # loop if counter dose not excced limit 999
     
     
     ### Let the Sieving commence! ###
