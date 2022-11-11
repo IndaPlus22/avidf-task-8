@@ -1,6 +1,4 @@
 
-
-
 ###
 ##
 # Push value to application stack.
@@ -82,7 +80,7 @@ factorial:
 		li $v1, 0
 		bne $t2,$s3, fackLoops  # if $t2, loop 		
 		
-	finito:
+	thisIsTheEnd:		#Hold your breath and count to ten!
 		POP ($s3)
 	
 		j final
