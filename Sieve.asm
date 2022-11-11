@@ -54,8 +54,8 @@ init_loop:
 	sieve_through:
 	add $t3, $t3, 1
 	mul $t2, $t3, $t3
-	
 	add $t4, $0, $t2
+	
 	evaluate_loop:
 	la $t0, prime_Num
 	add $t0, $t0, $t4
