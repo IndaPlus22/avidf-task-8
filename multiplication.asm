@@ -1,11 +1,17 @@
 
 
 
+###
+##
+# Push value to application stack.
+
 .macro	PUSH (%reg)
 	addi	$sp,$sp,-4              
 	sw	    %reg,0($sp)             
 .end_macro
 
+
+ # Load value from stack to given registery 
 .macro	POP (%reg)
 	lw	    %reg,0($sp)             
 	addi	$sp,$sp,4               
@@ -20,7 +26,7 @@ main:
 	li $a0, 20
 	li $a1, 1
 	
-	jal multiply
+	jal multiplication
 	move $a3, $v1
 	li $v0, 1
 	syscall
@@ -30,9 +36,9 @@ main:
     	la      $a0, new                
     syscall    
 	
-	#faculty
+	#factorial
 	li $a0, 5
-	jal faculty
+	jal factorial
 	
 	
 	final:
@@ -42,39 +48,39 @@ main:
 	
 	j	exit_program
 	
-multiply:
+multiplication:
 	PUSH($s0)
 	PUSH($s1)
 	move $s0, $a0 
 	move $s1, $a1
 	 
-	li $t0, 0  # int i = 0
+	li $t0, 0  	# int i = 0
 	
-	loopy:
+	loop:
 		add $v1, $v1, $s1
-		addi $t0,$t0,1     # increment loop index
- 		bne $t0,$s0,loopy  # if $t2, loop 
+		addi $t0,$t0,1     	# increment loop
+ 		bne $t0,$s0,loop  	# if $t2, loop 
   	
   	end:
   		POP($s0)
   		POP($s1)
   		jr $ra
 
-faculty:
+factorial:
 	PUSH($s3)
 	li	$v1, 0 
 	li	$s3, 0
 	li	$s4, 1
-	move 	$t2, $a0 # int i = 0
+	move 	$t2, $a0 	# int i = 0
 	
-	dirtyLoops:
+	fackLoops:
 		add	$s3,$s3, 1
 		move	$a0,$s3
 		move	$a1,$s4
-		jal 	multiply
+		jal 	multiplication
 		move	$s4,$v1
 		li $v1, 0
-		bne $t2,$s3, dirtyLoops  # if $t2, loop 		
+		bne $t2,$s3, fackLoops  # if $t2, loop 		
 		
 	fin:
 		POP ($s3)
