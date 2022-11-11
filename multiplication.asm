@@ -82,7 +82,7 @@ factorial:
 		li $v1, 0
 		bne $t2,$s3, fackLoops  # if $t2, loop 		
 		
-	fin:
+	finito:
 		POP ($s3)
 	
 		j final
